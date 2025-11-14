@@ -2,12 +2,23 @@
 
 ✨ Funcionalidades
 
-Criar tarefa
-Editar tarefa
-Marcar como concluída
-Excluir tarefa
-Importar tarefas via JSON
-Ordenar por prioridade ou data
+- Criar tarefa
+
+- Editar tarefa
+
+- Marcar como concluída
+
+- Excluir tarefa
+
+- Importar tarefas via JSON
+
+- Ordenar por prioridade ou data
+<br>
+
+</br>
+
+
+  
 
 📦 Diagrama De Caso de Uso
 
