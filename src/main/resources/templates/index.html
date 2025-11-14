@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gerenciador de Tarefas</title>
+
+    <!-- CSS: agora usando o caminho correto com Thymeleaf -->
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+<div class="app">
+    <header class="app-header">
+        <h1>Gerenciador de Tarefas</h1>
+        <div class="controls">
+            <input id="search" type="search" placeholder="Pesquisar tarefas..." aria-label="Pesquisar tarefas">
+            <select id="filter">
+                <option value="all">Todas</option>
+                <option value="active">Ativas</option>
+                <option value="completed">Concluídas</option>
+            </select>
+            <select id="sort">
+                <option value="order">Ordem</option>
+                <option value="createdAt">Criadas (novas)</option>
+                <option value="dueDate">Data de entrega</option>
+                <option value="priority">Prioridade</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="task-form">
+            <form id="taskForm">
+                <input id="title" name="title" placeholder="Título da tarefa" required maxlength="100">
+                <textarea id="description" name="description" placeholder="Descrição (opcional)"></textarea>
+                <div class="form-row">
+                    <input id="dueDate" name="dueDate" type="date">
+                    <select id="priority" name="priority" aria-label="Prioridade">
+                        <option value="low">Baixa</option>
+                        <option value="medium" selected>Média</option>
+                        <option value="high">Alta</option>
+                    </select>
+                    <input id="tags" name="tags" placeholder="Tags (vírgula-separated)">
+                </div>
+                <div class="form-actions">
+                    <button id="addBtn" type="submit">Adicionar tarefa</button>
+                    <button id="updateBtn" type="button" class="hidden">Salvar alterações</button>
+                    <button id="cancelEdit" type="button" class="hidden">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="task-actions">
+            <div class="left">
+                <button id="clearCompleted">Limpar concluídas</button>
+            </div>
+            <div class="right">
+                <div class="counts">
+                    <span id="countActive">0</span> ativas •
+                    <span id="countCompleted">0</span> concluídas
+                </div>
+                <!-- Export / Import controls adicionados -->
+                <div class="io-controls">
+                    <button id="exportBtn" type="button">Exportar</button>
+                    <input id="importFile" type="file" accept="application/json" />
+                </div>
+            </div>
+        </section>
+
+        <section class="task-list">
+            <ul id="tasks" aria-live="polite"></ul>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <small>Persistência local via <code>localStorage</code>. Export/Import disponível.</small>
+    </footer>
+</div>
+
+<!-- JS: corrigido para uso com Thymeleaf -->
+<script th:src="@{/js/script.js}" defer></script>
+</body>
+</html>
